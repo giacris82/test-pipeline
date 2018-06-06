@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'Build_Installer stage'
 				echo 'showing stage env'
-				sh 'printenv'
+				echo "deploy variable is ${deploy}"
             }
         }
 		stage('Build_Project_A') {
@@ -21,8 +21,8 @@ pipeline {
 			}
             steps {
                 echo 'Build_Project_A stage'
-				echo 'showing stage env'
-				sh 'printenv'
+				echo 'showing stage env variables'
+		    		echo "deploy variable is ${deploy}"		    
             }
         }
 		stage('Build_Project_B') {
