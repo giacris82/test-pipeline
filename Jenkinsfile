@@ -8,9 +8,9 @@ pipeline {
 			revision = "4.2.1-rc1"
 			}
             steps {
-                echo 'Build_Installer stage'
-		echo 'showing stage env'
-		echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
+                echo '''Build_Installer stage
+			showing stage env
+			deploy: ${deploy} , notify: ${notify} , revision: ${revision} '''
             }
         }
 		stage('Build_Project_A') {
@@ -20,9 +20,9 @@ pipeline {
 			revision = "1.2.3"
 			}
             steps {
-                echo 'Build_Project_A stage'
-				echo 'showing stage env variables'
-		    		echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}" 
+                echo '''Build_Project_A stage
+			showing stage env variables
+		    	deploy: ${deploy} , testing: ${testing} , revision: ${revision}''' 
             }
         }
 		stage('Build_Project_B') {
