@@ -1,5 +1,8 @@
 pipeline {
     agent any
+	options {
+                  timeout(time: 30, unit: 'MINUTES') 
+             }
     stages {
 	    boolean deploy = true
 	    def notify = "john.doe@virtamed.net" 
