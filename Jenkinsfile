@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    stages { 
+    stages {
+	    boolean deploy = true
+	    
         stage('Build_Installer') {
 		environment {
 			deploy = "true"
@@ -9,7 +11,7 @@ pipeline {
 			}
             steps {
                 echo '''Build_Installer stage
-			showing stage env
+			showing stage env '''
 			deploy: ${deploy} , notify: ${notify} , revision: ${revision} '''
             }
         }
