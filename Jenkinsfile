@@ -2,17 +2,20 @@ pipeline {
     agent any
     stages {
 	    boolean deploy = true
+	    def notify = "john.doe@virtamed.net" 
+	    def revision = "4.2.1-rc1
 	    
         stage('Build_Installer') {
-		environment {
+            /*environment {
 			deploy = "true"
 			notify = "john.doe@virtamed.net"
 			revision = "4.2.1-rc1"
-			}
+			}*/
+		
             steps {
                 echo '''Build_Installer stage
-			showing stage env '''
-			deploy: ${deploy} , notify: ${notify} , revision: ${revision} '''
+			showing stage env'''
+		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision} "
             }
         }
 		stage('Build_Project_A') {
@@ -23,8 +26,8 @@ pipeline {
 			}
             steps {
                 echo '''Build_Project_A stage
-			showing stage env variables
-		    	deploy: ${deploy} , testing: ${testing} , revision: ${revision}''' 
+			showing stage env variables '''
+		    echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
             }
         }
 		stage('Build_Project_B') {
