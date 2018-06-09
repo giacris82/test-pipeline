@@ -1,12 +1,13 @@
 pipeline {
+boolean deploy = true
+def notify = "john.doe@virtamed.net" 
+def revision = "4.2.1-rc1"
     agent any
 	options {
                   timeout(time: 30, unit: 'MINUTES') 
              }
     stages {
-	    boolean deploy = true
-	    def notify = "john.doe@virtamed.net" 
-	    def revision = "4.2.1-rc1"
+	    
 	    
         stage('Build_Installer') {
             /*environment {
