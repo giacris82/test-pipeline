@@ -1,6 +1,7 @@
 boolean deploy = true
 def notify = "john.doe@virtamed.net" 
 def revision = "4.2.1-rc1"
+def testvar = pluto
 pipeline {
     agent any
 	options {
@@ -20,7 +21,7 @@ pipeline {
             steps {
                 echo '''Build_Installer stage
 			showing stage env'''
-		echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
+		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision} , testvar: ${testvar}"
             }
         }
 		stage('Build_Project_A') {
