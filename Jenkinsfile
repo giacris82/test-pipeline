@@ -1,7 +1,9 @@
 pipeline {
+/*
 boolean deploy = true
 def notify = "john.doe@virtamed.net" 
 def revision = "4.2.1-rc1"
+*/
     agent any
 	options {
                   timeout(time: 30, unit: 'MINUTES') 
@@ -10,12 +12,12 @@ def revision = "4.2.1-rc1"
 	    
 	    
         stage('Build_Installer') {
-            /*environment {
+            environment {
 			deploy = "true"
 			notify = "john.doe@virtamed.net"
 			revision = "4.2.1-rc1"
 			}
-		*/
+		
 		
             steps {
                 echo '''Build_Installer stage
@@ -53,9 +55,9 @@ def revision = "4.2.1-rc1"
 				revision = "1.2.3"
 				}
             steps {
-                echo 'Test_Project_A stage'
-				echo 'showing stage env'
-				echo "module: ${module} , revision: ${revision}"
+                echo '''Test_Project_A stage
+		    	showing env'''
+		echo "module: ${module} , revision: ${revision}"
             }
         }
 		stage('Test_Project_B') {
@@ -64,9 +66,9 @@ def revision = "4.2.1-rc1"
 				revision = "1.2.4"
 				}
             steps {
-                echo 'Test_Project_B stage'
-				echo 'showing stage env'
-				echo "module: ${module} , revision: ${revision}"
+                echo '''Test_Project_B stage
+			showing stage env'''
+		echo "module: ${module} , revision: ${revision}"
             }
         }
     }
