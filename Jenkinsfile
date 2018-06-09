@@ -13,12 +13,13 @@ pipeline {
 			deploy = "true"
 			notify = "john.doe@virtamed.net"
 			revision = "4.2.1-rc1"
-			}*/
+			}
+		*/
 		
             steps {
                 echo '''Build_Installer stage
 			showing stage env'''
-		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision} "
+		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
             }
         }
 		stage('Build_Project_A') {
