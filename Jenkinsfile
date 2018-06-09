@@ -6,7 +6,7 @@ pipeline {
     stages {
 	    boolean deploy = true
 	    def notify = "john.doe@virtamed.net" 
-	    def revision = "4.2.1-rc1
+	    def revision = "4.2.1-rc1"
 	    
         stage('Build_Installer') {
             /*environment {
