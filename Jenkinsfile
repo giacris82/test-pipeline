@@ -1,7 +1,7 @@
 boolean deploy = true
 def notify = "john.doe@virtamed.net" 
 def revision = "4.2.1-rc1"
-def testvar = "pluto"
+
 pipeline {
     agent any
 	options {
@@ -11,17 +11,17 @@ pipeline {
 	    
 	    
         stage('Build_Installer') {
-            environment {
+           /* environment {
 			deploy = "true"
 			notify = "john.doe@virtamed.net"
 			revision = "4.2.1-rc1"
 			}
-		
+		*/
 		
             steps {
                 echo '''Build_Installer stage
 			showing stage env'''
-		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision} , testvar: ${testvar}"
+		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
             }
         }
 		stage('Build_Project_A') {
