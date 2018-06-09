@@ -1,7 +1,7 @@
 boolean deploy = true
 def notify = "john.doe@virtamed.net" 
 def revision = "4.2.1-rc1"
-def testvar = pluto
+def testvar = "pluto"
 pipeline {
     agent any
 	options {
