@@ -16,6 +16,17 @@ pipeline {
 			     echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
 		     }
 	     }
+	    post {
+		    always { 
+			    echo "Finished ${STAGE_NAME}"
+		    }
+		    failure { 
+			    echo "${STAGE_NAME} Failed!!!"
+		    }
+		    success { 
+			    echo "${STAGE_NAME} Successful!!"
+		    }
+	    }
 	    stage('Build_Project_A') {
 		    environment {
 			    deploy = "false"
@@ -24,6 +35,17 @@ pipeline {
 		    steps {
 			    echo "Starting ${STAGE_NAME} stage with variables"
 			    echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
+		    }
+	    }
+	    post {
+		    always { 
+			    echo "Finished ${STAGE_NAME}"
+		    }
+		    failure { 
+			    echo "${STAGE_NAME} Failed!!!"
+		    }
+		    success { 
+			    echo "${STAGE_NAME} Successful!!"
 		    }
 	    }
 	    stage('Build_Project_B') {
@@ -36,6 +58,17 @@ pipeline {
 		    echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
             }
         }
+	post {
+		    always { 
+			    echo "Finished ${STAGE_NAME}"
+		    }
+		    failure { 
+			    echo "${STAGE_NAME} Failed!!!"
+		    }
+		    success { 
+			    echo "${STAGE_NAME} Successful!!"
+		    }
+	    }
 	    stage('Test_Project_A') {
 			environment {
 				module = "parsing"
@@ -46,6 +79,17 @@ pipeline {
 		    echo "module: ${module} , revision: ${revision}"
             }
         }
+	post {
+		    always { 
+			    echo "Finished ${STAGE_NAME}"
+		    }
+		    failure { 
+			    echo "${STAGE_NAME} Failed!!!"
+		    }
+		    success { 
+			    echo "${STAGE_NAME} Successful!!"
+		    }
+	    }
 	    stage('Test_Project_B') {
 		environment {
 			module = "exporting"
@@ -56,5 +100,16 @@ pipeline {
 			    echo "module: ${module} , revision: ${revision}"
             }
         }
+	post {
+		    always { 
+			    echo "Finished ${STAGE_NAME}"
+		    }
+		    failure { 
+			    echo "${STAGE_NAME} Failed!!!"
+		    }
+		    success { 
+			    echo "${STAGE_NAME} Successful!!"
+		    }
+	    }
     }
 }
