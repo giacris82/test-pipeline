@@ -16,9 +16,8 @@ pipeline {
 	
 		
             steps {
-                echo '''Build_Installer stage
-			showing stage env'''
-		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
+                echo '''Build_Installer stage variables'''
+		echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
             }
         }
 		stage('Build_Project_A') {
@@ -27,8 +26,7 @@ pipeline {
 			revision = "1.2.3"
 			}
             steps {
-                echo '''Build_Project_A stage
-			showing stage env variables '''
+                    echo '''Build_Project_A stage variables '''
 		    echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
             }
         }
@@ -38,9 +36,8 @@ pipeline {
 			revision = "1.2.4"
 			}
             steps {
-                echo 'Build_Project_B stage'
-				echo 'showing stage env'
-				echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
+                echo 'Build_Project_B stage variables'
+		echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
             }
         }
 		stage('Test_Project_A') {
@@ -49,8 +46,7 @@ pipeline {
 				revision = "1.2.3"
 				}
             steps {
-                echo '''Test_Project_A stage
-		    	showing env'''
+                echo '''Test_Project_A stage variables'''
 		echo "module: ${module} , revision: ${revision}"
             }
         }
@@ -60,8 +56,7 @@ pipeline {
 				revision = "1.2.4"
 				}
             steps {
-                echo '''Test_Project_B stage
-			showing stage env'''
+                echo '''Test_Project_B stage varibles'''
 		echo "module: ${module} , revision: ${revision}"
             }
         }
