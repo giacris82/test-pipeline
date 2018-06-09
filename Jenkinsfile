@@ -12,7 +12,7 @@ pipeline {
 			     revision = "4.2.1-rc1"
 		     }
 		     steps {
-			     echo "Starting Build_Installer stage with variables:"
+			     echo "Starting ${STAGE_NAME} stage with variables:"
 			     echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
 		     }
 	     }
