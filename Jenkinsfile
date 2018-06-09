@@ -1,7 +1,5 @@
-boolean deploy = true
-def notify = "john.doe@virtamed.net" 
-def revision = "4.2.1-rc1"
-
+def notify = "john.doe@virtamed.net"
+def testing = "all"
 pipeline {
     agent any
 	options {
@@ -11,12 +9,11 @@ pipeline {
 	    
 	    
         stage('Build_Installer') {
-           /* environment {
+           environment {
 			deploy = "true"
-			notify = "john.doe@virtamed.net"
 			revision = "4.2.1-rc1"
 			}
-		*/
+	
 		
             steps {
                 echo '''Build_Installer stage
@@ -27,7 +24,6 @@ pipeline {
 		stage('Build_Project_A') {
 		environment {
 			deploy = "false"
-			testing = "all"
 			revision = "1.2.3"
 			}
             steps {
@@ -39,7 +35,6 @@ pipeline {
 		stage('Build_Project_B') {
 			environment {
 			deploy = "true"
-			testing = "all"
 			revision = "1.2.4"
 			}
             steps {
