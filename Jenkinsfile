@@ -22,6 +22,7 @@ pipeline {
 		    }
 		    failure { 
 			    echo "${STAGE_NAME} Failed!!!"
+			    mail to: ${notify}, subject: "The Stage ${STAGE_NAME} failed!!!"
 		    }
 		    success { 
 			    echo "${STAGE_NAME} Successful!!"
