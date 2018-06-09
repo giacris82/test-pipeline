@@ -1,9 +1,7 @@
-pipeline {
-/*
 boolean deploy = true
 def notify = "john.doe@virtamed.net" 
 def revision = "4.2.1-rc1"
-*/
+pipeline {
     agent any
 	options {
                   timeout(time: 30, unit: 'MINUTES') 
@@ -22,7 +20,7 @@ def revision = "4.2.1-rc1"
             steps {
                 echo '''Build_Installer stage
 			showing stage env'''
-		    echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
+		echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
             }
         }
 		stage('Build_Project_A') {
