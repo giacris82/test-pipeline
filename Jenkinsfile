@@ -15,8 +15,7 @@ pipeline {
 			     echo "Starting ${STAGE_NAME} stage with variables:"
 			     echo "deploy: ${deploy} , notify: ${notify} , revision: ${revision}"
 		     }
-	     }
-	    post {
+		     post {
 		    always { 
 			    echo "Finished ${STAGE_NAME}"
 		    }
@@ -27,6 +26,8 @@ pipeline {
 		    success { 
 			    echo "${STAGE_NAME} Successful!!"
 		    }
+	     }
+	    
 	    }
 	    stage('Build_Project_A') {
 		    environment {
@@ -37,10 +38,9 @@ pipeline {
 			    echo "Starting ${STAGE_NAME} stage with variables"
 			    echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
 		    }
-	    }
-	    post {
-		    always { 
-			    echo "Finished ${STAGE_NAME}"
+		    post {
+			    always {
+				    echo "Finished ${STAGE_NAME}"
 		    }
 		    failure { 
 			    echo "${STAGE_NAME} Failed!!!"
@@ -49,6 +49,8 @@ pipeline {
 			    echo "${STAGE_NAME} Successful!!"
 		    }
 	    }
+	    }
+
 	    stage('Build_Project_B') {
 		    environment {
 			    deploy = "true"
@@ -58,8 +60,7 @@ pipeline {
 		    echo "Starting ${STAGE_NAME} stage with variables"
 		    echo "deploy: ${deploy} , testing: ${testing} , revision: ${revision}"
             }
-        }
-	post {
+		    post {
 		    always { 
 			    echo "Finished ${STAGE_NAME}"
 		    }
@@ -70,6 +71,8 @@ pipeline {
 			    echo "${STAGE_NAME} Successful!!"
 		    }
 	    }
+        }
+	
 	    stage('Test_Project_A') {
 			environment {
 				module = "parsing"
@@ -79,8 +82,7 @@ pipeline {
 		    echo "Starting ${STAGE_NAME} stage with variables"
 		    echo "module: ${module} , revision: ${revision}"
             }
-        }
-	post {
+		    post {
 		    always { 
 			    echo "Finished ${STAGE_NAME}"
 		    }
@@ -91,6 +93,8 @@ pipeline {
 			    echo "${STAGE_NAME} Successful!!"
 		    }
 	    }
+        }
+	
 	    stage('Test_Project_B') {
 		environment {
 			module = "exporting"
@@ -100,8 +104,7 @@ pipeline {
 			    echo "Staring ${STAGE_NAME} stage with varibles:"
 			    echo "module: ${module} , revision: ${revision}"
             }
-        }
-	post {
+		    post {
 		    always { 
 			    echo "Finished ${STAGE_NAME}"
 		    }
@@ -112,5 +115,7 @@ pipeline {
 			    echo "${STAGE_NAME} Successful!!"
 		    }
 	    }
+        }
+	
     }
 }
